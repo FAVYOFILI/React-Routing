@@ -3,7 +3,6 @@ import { Route, Routes } from "react-router-dom";
 import SignUp from "../Auth/SignUp";
 import Home from "../Page/Home";
 import About from "../Page/About";
-import Contact from "../Page/Contact";
 import StaticLayout from "../Layout/StaticLayout";
 import Demo from "../Page/Demo";
 import Dashboard from "../Auth/Dashboard";
@@ -14,10 +13,10 @@ const AllScreen: React.FC = () => {
     <div>
       <Routes>
         <Route path="/" element={<StaticLayout />}>
-          <Route index element={<Home />}></Route>
+          {/* <Route index element={<Home />}></Route> */}
           <Route path="/about" element={<About />}></Route>
+          <Route path="/" element={<Home />}></Route>
           <Route path="/demo" element={<Demo />}></Route>
-          <Route path="/contact-us" element={<Contact />}></Route>
         </Route>
 
        

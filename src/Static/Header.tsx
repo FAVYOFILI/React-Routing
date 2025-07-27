@@ -1,22 +1,11 @@
 import { useState } from "react";
 import Gnologo from "../assets/GNOlogo.png"
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [isMobileMenuHovering, setIsMobileMenuHovering] = useState(false);
   const [isDemoHovering, setIsDemoHovering] = useState(false);
   
-  const navigate = useNavigate()
-      
-       const isLoggedIn:boolean = true 
-       const handleLogin = () => {
-        if (!isLoggedIn) {
-          navigate("/signup")
-        } else{
-          navigate ("/")
-        }
-       }
-
   return (
     <header className="bg-white px-4 sm:px-20 py-6 flex justify-between items-center">
       <div>
@@ -73,7 +62,7 @@ const Header = () => {
             </Link>
 
             <Link
-              to="/Dashbord"
+              to="/Dashboard"
               className="block px-4 py-2 text-sm text-white bg-[#24a3a4] rounded mx-2 my-1 text-center  cursor-pointer"
             >
               Dashboard
@@ -127,9 +116,7 @@ const Header = () => {
         <button className="px-[28px] py-[10px] flex rounded-md justify-center items-center text-white bg-[#24a3a4] hover:bg-[#1d8a8b] transition-colors  cursor-pointer">
           Dashboard
         </button>
-        <button
-          onClick={handleLogin}
-          className="px-[28px] py-[10px] flex rounded-md justify-center items-center text-white bg-[#24a3a4] hover:bg-[#1d8a8b] transition-colors  cursor-pointer"
+        <button className="px-[28px] py-[10px] flex rounded-md justify-center items-center text-white bg-[#24a3a4] hover:bg-[#1d8a8b] transition-colors  cursor-pointer"
         >
           Sign Up
         </button>

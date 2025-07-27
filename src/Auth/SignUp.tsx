@@ -1,14 +1,8 @@
-// const SignUp: React.FC = () => {
-//   return (
-//     <div>
-        
-//     </div>
-//   )
-// };
 
-// export default SignUp;
                         
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
@@ -18,7 +12,7 @@ const SignUp = () => {
     confirmPassword: "",
   });
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
       ...prev,
@@ -26,11 +20,24 @@ const SignUp = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // Add your sign up logic here
     console.log("Form submitted:", formData);
     alert("Sign up successful!");
+  };
+
+
+  
+  const navigate = useNavigate();
+
+  const isSignedIn: boolean = true;
+  const handleSignup = () => {
+    if (!isSignedIn) {
+      navigate("/signup");
+    } else {
+      navigate("/");
+    }
   };
 
   return (
@@ -129,6 +136,7 @@ const SignUp = () => {
 
             <div>
               <button
+                onClick={handleSignup}
                 type="submit"
                 className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
